@@ -6,13 +6,13 @@
 Summary:	Parsing and extracting information from (possibly malformed) HTML/XML documents
 Summary(pl.UTF-8):	Analiza i wydobywanie informacji z (niekoniecznie poprawnych) dokumentów HTML/XML
 Name:		ghc-%{pkgname}
-Version:	0.13
+Version:	0.14.8
 Release:	1
 License:	BSD
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/tagsoup
 Source0:	http://hackage.haskell.org/package/%{pkgname}-%{version}/%{pkgname}-%{version}.tar.gz
-# Source0-md5:	35eea4fb64e4166a9e18ef938ea1f726
+# Source0-md5:	20f2c2d500086d113d19b7ca55f927a1
 URL:		http://hackage.haskell.org/package/tagsoup
 BuildRequires:	ghc >= 6.12.3
 BuildRequires:	ghc-base >= 4
@@ -127,23 +127,27 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc LICENSE tagsoup.htm
+%doc CHANGES.txt LICENSE README.md
 %{_libdir}/%{ghcdir}/package.conf.d/%{pkgname}.conf
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/HStagsoup-%{version}.o
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStagsoup-%{version}.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStagsoup-%{version}-*.so
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStagsoup-%{version}-*.a
+%exclude %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStagsoup-%{version}-*_p.a
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/StringLike.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/StringLike.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/HTML
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/HTML/TagSoup.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/HTML/TagSoup.dyn_hi
 %dir %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/HTML/TagSoup
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/HTML/TagSoup/*.hi
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/HTML/TagSoup/*.dyn_hi
 
 
 %if %{with prof}
 %files prof
 %defattr(644,root,root,755)
-%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStagsoup-%{version}_p.a
+%{_libdir}/%{ghcdir}/%{pkgname}-%{version}/libHStagsoup-%{version}-*_p.a
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/StringLike.p_hi
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/HTML/TagSoup.p_hi
 %{_libdir}/%{ghcdir}/%{pkgname}-%{version}/Text/HTML/TagSoup/*.p_hi
