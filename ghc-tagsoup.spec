@@ -7,7 +7,7 @@ Summary:	Parsing and extracting information from (possibly malformed) HTML/XML d
 Summary(pl.UTF-8):	Analiza i wydobywanie informacji z (niekoniecznie poprawnych) dokumentów HTML/XML
 Name:		ghc-%{pkgname}
 Version:	0.14.8
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages
 #Source0Download: http://hackage.haskell.org/package/tagsoup
